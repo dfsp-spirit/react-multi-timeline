@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 
+export type EventData = {
+	+startIndex: number,
+	+duration: number,
+    +eventTitle: string,
+	+eventColor?: string
+};
+
 export type SingleTimelineData = {
-    events: Array<Object>,
-    title: string
+    +events: Array<EventData>,
+    +timelineTitle: string
 }
 
 export class Timeline extends Component {
@@ -10,7 +17,7 @@ export class Timeline extends Component {
     
     render() {
         return(
-            <div className="Timeline">{this.props.title}</div>  
+            <div className="Timeline">{this.props.timelineTitle}</div>  
         );
     }
 }
