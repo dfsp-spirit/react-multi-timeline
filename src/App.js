@@ -43,6 +43,7 @@ class App extends Component {
           width="small"
           title="WG Griesheim Raumbelegung"
           timelinesData={timelinesData}
+          timeUnitLabel="months"
         />
       </div>
     );

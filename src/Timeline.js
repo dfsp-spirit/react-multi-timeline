@@ -48,7 +48,7 @@ export class Timeline extends Component {
           width: widthString,
           backgroundColor: eventColorString
         };
-        const eventText = event.eventTitle + ': ' + event.duration;
+        const eventText = event.eventTitle + ': ' + event.duration + (this.props.timeUnitLabel ? ' ' + this.props.timeUnitLabel : '');
         const vis = (
           <span title={eventText} className="event" style={eventStyle} key={index + event.start}>
             {eventText}
