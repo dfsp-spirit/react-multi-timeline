@@ -33,7 +33,7 @@ div.timeline-title {
 }
 
 div.timeline-outer-container-fixed-width {
-    border: 1px solid #ff5555;
+    border: 1px solid #ffaaaa;
     margin: 2em;
     overflow: scroll;
     width: 1000px;
@@ -41,13 +41,14 @@ div.timeline-outer-container-fixed-width {
 }
 
 div.timeline-inner-container-scrolling {
-    border: 1px solid #5555ff;
+    border: 1px solid #aaaaff;
     margin: 1em;
     min-width: 3000px;
      box-sizing: border-box;
 }
 
 span.event {
+    font-size: small;
    border: 1px solid black;
    overflow: hidden;
    text-overflow: ellipsis;
@@ -57,6 +58,7 @@ span.event {
    padding: 1em;
    line-height: 1.5em;
    max-height: 5em;
+   border-radius: 0.2em;
 }
 
 span.timeBetweenEvents {
