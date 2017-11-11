@@ -31,7 +31,7 @@ export class Timeline extends Component {
         const eventText = '[' + event.eventTitle + ': ' + event.duration + ']';
         //const eventText = '';
         const vis = (
-          <span className="event" style={eventStyle} key={index + event.start}>
+          <span title={eventText} className="event" style={eventStyle} key={index + event.start}>
             {eventText}
           </span>
         );

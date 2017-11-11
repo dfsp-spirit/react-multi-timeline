@@ -26,10 +26,10 @@ class App extends Component {
     const roomViolaEvents = [room4_event1, room4_event2];
 
     const timelinesData = [
-      { events: roomTimEvents, timelineTitle: 'Tim' },
-      { events: roomViolaEvents, timelineTitle: 'Viola' },
-      { events: roomGuestEvents, timelineTitle: 'Guest room' },
-      { events: roomLauraEvents, timelineTitle: 'Laura' }
+      { events: roomTimEvents, timelineTitle: "Tim's room" },
+      { events: roomViolaEvents, timelineTitle: "Viola's room" },
+      { events: roomGuestEvents, timelineTitle: "Guest room" },
+      { events: roomLauraEvents, timelineTitle: "Laura's room" }
     ];
 
     return (
