@@ -39,3 +39,12 @@ span.event {
    text-align: center;
    padding: 10px;
 }
+
+span.timeBetweenEvents {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display:inline-block;
+   min-height: 3em;
+   text-align: center;
+   padding: 10px;
+}

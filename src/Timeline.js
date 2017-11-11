@@ -16,8 +16,27 @@ export class Timeline extends Component {
   props: SingleTimelineData;
 
   render() {
-    const eventVisualisations = this.props.events.map(
+    const eventVisualisations = [];
+    this.props.events.forEach(
       (event: EventData, index: number) => {
+          
+          if(index >= 1) {
+              const lastEvent = this.props.events[index-1];
+              const lastEventEnd = lastEvent.start + lastEvent.duration; 
+              if(lastEventEnd !== event.start) {
+                  const timeInBetween = event.start - lastEventEnd;
+                   const leftString = (lastEventEnd * 10) + 'px';
+                  const widthBetweenString = (timeInBetween * 10) + 'px';
+                  const timeBetweenEventsStyle = {
+                      left: leftString,
+                      width: widthBetweenString,
+                  };
+                  eventVisualisations.push(<span className="timeBetweenEvents" style={timeBetweenEventsStyle} key={'timeBetweenEvents' + (index - 1) + 'and' + index}>
+            &nbsp;
+          </span>);
+              }
+          }
+          
         const leftString = (event.start * 10) + 'px'; // TODO: we should compute this relative, based on the full size of the parent.
         const widthString = (event.duration * 10) + 'px';
         const eventColorString = event.eventColor
@@ -35,7 +54,7 @@ export class Timeline extends Component {
             {eventText}
           </span>
         );
-        return vis;
+        eventVisualisations.push(vis);
       }
     );
 
