@@ -8,23 +8,38 @@ import type {SingleTimelineData} from './Timeline';
 
 class App extends Component {
   render() {
-    const event1 = {
-		start: 10,
-		duration: 3,
-		eventTitle: 'Esteban'
-	};
-    const timelinesData = [{events: [], timelineTitle: "Timeline A"}, {events: [], timelineTitle: "Timeline B"}, {events: [], timelineTitle: "Timeline C"}];
+      
+    // Laura's room
+    const room1_event1 = { start: 1, duration: 4, eventTitle: 'Esteban' };
+    const room1_event2 = { start: 5, duration: 20, eventTitle: 'Laura' };
+    const roomLauraEvents = [room1_event1, room1_event2];
+    
+    // Tim's room
+    const room2_event1 = { start: 1, duration: 48, eventTitle: 'Tim' };
+    const room2_event2 = { start: 49, duration: 8, eventTitle: 'Sandra' };
+    const roomTimEvents = [room2_event1, room2_event2];
+    
+    // guest room
+    const room3_event1 = { start: 5, duration: 1, eventTitle: 'Anita' };
+    const room3_event2 = { start: 15, duration: 4, eventTitle: 'Olivia' };
+    const roomGuestEvents = [room3_event1, room3_event2];
+    
+    // Viola's room
+    const room4_event1 = { start: 1, duration: 42, eventTitle: 'Viola' };
+    const room4_event2 = { start: 43, duration: 8, eventTitle: 'Daniel' };
+    const roomViolaEvents = [room4_event1, room4_event2];
+    
+    const timelinesData = [{events: roomTimEvents, timelineTitle: "Tim"}, {events: roomViolaEvents, timelineTitle: "Viola"}, {events: roomGuestEvents, timelineTitle: "Guest room"}, {events: roomLauraEvents, timelineTitle: "Laura"}];
       
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Welcome to the react-multi-timline demo</h1>
         </header>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          Checkout the example timeline below.
         </p>
-        <p>Here is a timeline:</p>
         <ReactMultiTimeline width="small" title="My timeline" timelinesData={timelinesData}/>
       </div>
     );

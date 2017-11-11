@@ -20,7 +20,7 @@ export class ReactMultiTimeline extends Component {
         
         const timelinesData = this.props.timelinesData;
         const timelines = timelinesData.map((tData: SingleTimelineData, index: number) => {
-            return <div><Timeline timelineTitle={"Timeline #" + index + ": " + tData.title} events={tData.events} /></div>;
+            return <div><Timeline timelineTitle={"Timeline #" + index + ": " + tData.timelineTitle} events={tData.events} /></div>;
         });
         
         return (
