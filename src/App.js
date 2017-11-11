@@ -41,7 +41,7 @@ class App extends Component {
         <p className="App-intro">Checkout the example timeline below.</p>
         <ReactMultiTimeline
           width="small"
-          title="My timeline"
+          title="WG Griesheim Raumbelegung"
           timelinesData={timelinesData}
         />
       </div>

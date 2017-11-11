@@ -17,7 +17,6 @@ div.react-multi-timeline {
 div.multi-timeline-title {
     padding-top: 1em;
     padding-bottom: 1em;
-    padding-left: 1em;
     font-size: x-large;
 }
 
@@ -25,9 +24,21 @@ div.timeline {
      margin: 1em;
 }
 
+div.multi-timeline-title-container {
+    margin: 1em;
+}
+
 div.timeline-title {
-    min-height: 1.5em;
     font-size: large;
+}
+
+div.timeline-outer-container-fixed-width {
+    border: 1px solid #ff5555;
+}
+
+div.timeline-inner-container-scrolling {
+    border: 1px solid #5555ff;
+    margin: 1em;
 }
 
 span.event {

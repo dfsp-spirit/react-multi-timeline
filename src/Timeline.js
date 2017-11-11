@@ -9,7 +9,8 @@ export type EventData = {
 
 export type SingleTimelineData = {
   +events: Array<EventData>,
-  +timelineTitle: string
+  +timelineTitle: string,
+  +timeUnitLabel?: string
 };
 
 export class Timeline extends Component {
@@ -47,8 +48,7 @@ export class Timeline extends Component {
           width: widthString,
           backgroundColor: eventColorString
         };
-        const eventText = '[' + event.eventTitle + ': ' + event.duration + ']';
-        //const eventText = '';
+        const eventText = event.eventTitle + ': ' + event.duration;
         const vis = (
           <span title={eventText} className="event" style={eventStyle} key={index + event.start}>
             {eventText}
