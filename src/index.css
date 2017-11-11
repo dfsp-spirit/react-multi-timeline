@@ -34,11 +34,16 @@ div.timeline-title {
 
 div.timeline-outer-container-fixed-width {
     border: 1px solid #ff5555;
+    margin: 1em;
+    overflow: scroll;
+    width: 1000px;
+    height: 100%;
 }
 
 div.timeline-inner-container-scrolling {
     border: 1px solid #5555ff;
     margin: 1em;
+    min-width: 3000px;
 }
 
 span.event {
