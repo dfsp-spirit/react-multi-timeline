@@ -6,7 +6,7 @@ import { ReactMultiTimeline } from './ReactMultiTimeline';
 class App extends Component {
   render() {
     // Laura's room
-    const room1_event1 = { start: 1, duration: 4, eventTitle: 'Esteban' };
+    const room1_event1 = { start: 1, duration: 4, eventTitle: 'Esteban', eventColor: '#ff444466' };
     const room1_event2 = { start: 5, duration: 20, eventTitle: 'Laura' };
     const roomLauraEvents = [room1_event1, room1_event2];
 

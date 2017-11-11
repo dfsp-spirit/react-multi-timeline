@@ -20,8 +20,8 @@ export class Timeline extends Component {
       (event: EventData, index: number) => {
         const leftString = event.start + 'px'; // TODO: we should compute this relative, based on the full size of the parent.
         const widthString = event.duration + 'px';
-        const eventColorString = this.props.eventColor
-          ? this.props.eventColor
+        const eventColorString = event.eventColor
+          ? event.eventColor
           : 'gray';
         const eventStyle = {
           left: leftString,
