@@ -18,8 +18,8 @@ export class Timeline extends Component {
   render() {
     const eventVisualisations = this.props.events.map(
       (event: EventData, index: number) => {
-        const leftString = event.start + 'px'; // TODO: we should compute this relative, based on the full size of the parent.
-        const widthString = event.duration + 'px';
+        const leftString = (event.start * 10) + 'px'; // TODO: we should compute this relative, based on the full size of the parent.
+        const widthString = (event.duration * 10) + 'px';
         const eventColorString = event.eventColor
           ? event.eventColor
           : 'gray';
@@ -29,6 +29,7 @@ export class Timeline extends Component {
           backgroundColor: eventColorString
         };
         const eventText = '[' + event.eventTitle + ': ' + event.duration + ']';
+        //const eventText = '';
         const vis = (
           <span className="event" style={eventStyle} key={index + event.start}>
             {eventText}

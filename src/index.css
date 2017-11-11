@@ -1,13 +1,35 @@
 body {
-  margin: 0;
+  margin: 2.5%;
   padding: 0;
   font-family: sans-serif;
 }
 
 /* CSS for react multi-timeline starts here */
 
+div.react-multi-timeline {
+    border: 1px solid #555555;
+    background-color: #cccccc;
+    min-height: 1em;
+}
+
+
+div.multi-timeline-title {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-size: x-large;
+}
+
+div.timeline-title {
+    min-height: 2em;
+    font-size: large;
+}
+
 span.event {
    border: 1px solid black;
-   overflow: hide;
-   text-overflow: ellipsis
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display:inline-block;
+   min-height: 3em;
+   text-align: center;
+   padding: 10px;
 }
