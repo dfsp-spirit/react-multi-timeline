@@ -8,8 +8,12 @@ import type {SingleTimelineData} from './Timeline';
 
 class App extends Component {
   render() {
-      
-      const timelinesData = [{events: [], title: "Timeline A"}, {events: [], title: "Timeline B"}, {events: [], title: "Timeline C"}];
+    const event1 = {
+		start: 10,
+		duration: 3,
+		eventTitle: 'Esteban'
+	};
+    const timelinesData = [{events: [], timelineTitle: "Timeline A"}, {events: [], timelineTitle: "Timeline B"}, {events: [], timelineTitle: "Timeline C"}];
       
     return (
       <div className="App">
