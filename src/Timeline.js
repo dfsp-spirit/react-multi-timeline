@@ -16,9 +16,11 @@ export class Timeline extends Component {
     props: SingleTimelineData;
 	
 	const eventVisualisations = this.props.events.map((event: EventData) => {
+		const leftString = event.start + 'px';		// TODO: we should compute this relative, based on the full size of the parent.
 		const widthString = event.duration + 'px';
 		const eventColorString = this.props.eventColor ? this.props.eventColor : 'gray';
 		const eventStyle = {
+			'left': leftString,
 			'width': widthString,
 			'backgroundColor': eventColorString
 		};
