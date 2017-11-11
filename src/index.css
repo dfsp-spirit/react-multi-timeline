@@ -3,3 +3,11 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+/* CSS for react multi-timeline starts here */
+
+span.event {
+   border: 1px solid black;
+   overflow: hide;
+   text-overflow: ellipsis
+}
