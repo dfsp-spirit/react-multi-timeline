@@ -6,8 +6,8 @@ import { ReactMultiTimeline } from './ReactMultiTimeline';
 class App extends Component {
   render() {
     // Laura's room
-    const room1_event1 = { start: 1, duration: 4, eventTitle: 'Esteban', eventColor: '#ff444466' };
-    const room1_event2 = { start: 5, duration: 72, eventTitle: 'Laura', eventDescription: '12/2009 - 5/2016' };
+    const room1_event1 = { start: 1, duration: 4, eventTitle: 'Esteban', eventDescription: '08/2009 - 11/2009', eventColor: '#ff444466' };
+    const room1_event2 = { start: 5, duration: 72, eventTitle: 'Laura', eventDescription: '12/2009 - 5/2016', eventColor: '#a4d2df' };
     const room1_event3 = { start: 77, duration: 12, eventTitle: 'Hunni', eventDescription: '12/2009 - 5/2016' };
     const room1_event4 = { start: 89, duration: 4, eventTitle: 'Tim', eventDescription: '12/2009 - 5/2016' };
     const room1_event5 = { start: 93, duration: 4, eventTitle: 'Jelena', eventDescription: '12/2009 - 5/2016' };
@@ -43,14 +43,33 @@ class App extends Component {
     const room6_event2 = { start: 25, duration: 64, eventTitle: 'Jelena' };
     const room6_event3 = { start: 89, duration: 8, eventTitle: 'Giammarco' };
     const roomJelenaEvents = [room6_event1, room6_event2, room6_event3];
+    
+    // Philipp's room
+    const room7_event1 = { start: 1, duration: 24, eventTitle: 'Philipp' };
+    const room7_event2 = { start: 25, duration: 64, eventTitle: 'Marie' };
+    const room7_event3 = { start: 89, duration: 8, eventTitle: 'Maren' };
+    const room7_event4 = { start: 89, duration: 8, eventTitle: 'Hunni' };
+    const roomPhilippEvents = [room7_event1, room7_event2, room7_event3, room7_event4];
+    
+    // Olivia's room
+    const room8_event1 = { start: 1, duration: 24, eventTitle: 'Olivia' };
+    const room8_event2 = { start: 25, duration: 64, eventTitle: 'Jan' };
+    const room8_event3 = { start: 89, duration: 8, eventTitle: 'Laura' };
+    const roomOliviaEvents = [room8_event1, room8_event2, room8_event3];
+    
 
     const timelinesData = [
-      { events: roomTimEvents, timelineTitle: "Tim's room" },
-      { events: roomViolaEvents, timelineTitle: "Viola's room" },
-      { events: roomGuestEvents, timelineTitle: "Guest room" },
-      { events: roomLauraEvents, timelineTitle: "Laura's room" },
-      { events: roomChristophEvents, timelineTitle: "Christoph's room" },
-      { events: roomJelenaEvents, timelineTitle: "Jelena's room" }
+      { events: roomLauraEvents, timelineTitle: "Oben links" },
+      { events: roomChristophEvents, timelineTitle: "Oben Mitte" },
+      { events: roomJelenaEvents, timelineTitle: "Oben rechts" },
+      { events: roomGuestEvents, timelineTitle: "Mittlere Ebene links (Gästezimmer)" },      
+      { events: roomViolaEvents, timelineTitle: "Mittlere Ebene Mitte" },
+      { events: roomTimEvents, timelineTitle: "Mittlere Ebene rechts" },
+      { events: roomPhilippEvents, timelineTitle: "Untere Wohnung links" },
+      { events: roomOliviaEvents, timelineTitle: "Untere Wohnung rechts" },
+      
+      
+      
     ];
 
     return (

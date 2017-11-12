@@ -22,6 +22,10 @@ export class Timeline extends Component {
   props: SingleTimelineData;
   
   getWidthString(durationAbsoluteThisEvent: number) : string {
+      if(durationAbsoluteThisEvent <= 0) {
+          console.warn("Computed absolute duration of event in input data is " + durationAbsoluteThisEvent + ". Skipping visualization of this event. Please check input data. Do you have overlapping events?");
+          return '0';
+      }
       const useParentWidth = this.props.useParentWidth;
       if(useParentWidth) {
           const lastEventEndAbsoluteOverAllTimelines = this.props.lastEventEndAbsoluteOverAllTimelines;             // TODO: Should we use max of this timeline (computed then) if it is not given? Or bail out?
@@ -44,7 +48,10 @@ export class Timeline extends Component {
           // Add empty space between events if needed
           if(index >= 1) {
               const lastEvent = this.props.events[index-1];
-              const lastEventEnd = lastEvent.start + lastEvent.duration; 
+              const lastEventEnd = lastEvent.start + lastEvent.duration;
+              if(lastEventEnd > event.start) {
+                  console.warn("Timeline '" + this.props.timelineTitle + "': Events #" + (index-1) + " and #" + index + " overlap and/or are in wrong order. Check input data.");
+              }
               if(lastEventEnd !== event.start) {
                   const timeInBetween = event.start - lastEventEnd;
                   const widthBetweenString = this.getWidthString(timeInBetween);
