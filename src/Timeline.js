@@ -15,11 +15,26 @@ export type SingleTimelineData = {
   +displayTimeUnits: boolean,
   +useParentWidth: boolean,
   +absoluteWidthRenderingScalingFactor?: number,        // Only used if useParentWidth is false (i.e., when rendering absolute values). Factor to scale the event duration into event width in pixels. Try 10 if in doubt. Defaults to 10.
-  +lastEventEndAbsoluteOverAllTimelines: number,
+  +lastEventEndAbsoluteOverAllTimelines: number,        // Only needed if useParentWidth is true.
 };
 
 export class Timeline extends Component {
   props: SingleTimelineData;
+  
+  getWidthString(durationAbsoluteThisEvent: number) : string {
+      const useParentWidth = this.props.useParentWidth;
+      const absoluteWidthRenderingScalingFactor = this.props.absoluteWidthRenderingScalingFactor ? this.props.absoluteWidthRenderingScalingFactor : 10;
+      if(useParentWidth) {
+          const lastEventEndAbsoluteOverAllTimelines = this.props.lastEventEndAbsoluteOverAllTimelines;             // TODO: Should we use max of this timeline (computed then) if it is not given? Or bail out?
+          const percentThisEvent = ((durationAbsoluteThisEvent * 1.0) % lastEventEndAbsoluteOverAllTimelines) * 100; 
+          return percentThisEvent + '%';
+      }
+      else {
+          const absoluteWidthRenderingScalingFactor = this.props.absoluteWidthRenderingScalingFactor ? this.props.absoluteWidthRenderingScalingFactor : 10;
+          return ((durationAbsoluteThisEvent * absoluteWidthRenderingScalingFactor) + 'px');
+      }
+  }
+      
 
   render() {
       const absoluteWidthRenderingScalingFactor = this.props.absoluteWidthRenderingScalingFactor ? this.props.absoluteWidthRenderingScalingFactor : 10;
@@ -27,6 +42,7 @@ export class Timeline extends Component {
     this.props.events.forEach(
       (event: EventData, index: number) => {
           
+          // Add empty space between events if needed
           if(index >= 1) {
               const lastEvent = this.props.events[index-1];
               const lastEventEnd = lastEvent.start + lastEvent.duration; 
