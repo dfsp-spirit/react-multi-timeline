@@ -23,7 +23,6 @@ export class Timeline extends Component {
   
   getWidthString(durationAbsoluteThisEvent: number) : string {
       const useParentWidth = this.props.useParentWidth;
-      const absoluteWidthRenderingScalingFactor = this.props.absoluteWidthRenderingScalingFactor ? this.props.absoluteWidthRenderingScalingFactor : 10;
       if(useParentWidth) {
           const lastEventEndAbsoluteOverAllTimelines = this.props.lastEventEndAbsoluteOverAllTimelines;             // TODO: Should we use max of this timeline (computed then) if it is not given? Or bail out?
           const percentThisEvent = ((durationAbsoluteThisEvent * 1.0) % lastEventEndAbsoluteOverAllTimelines) * 100; 
@@ -49,7 +48,7 @@ export class Timeline extends Component {
               if(lastEventEnd !== event.start) {
                   const timeInBetween = event.start - lastEventEnd;
                    const leftString = (lastEventEnd * absoluteWidthRenderingScalingFactor) + 'px';
-                  const widthBetweenString = (timeInBetween * absoluteWidthRenderingScalingFactor) + 'px';
+                  const widthBetweenString = this.getWidthString(timeInBetween);
                   const timeBetweenEventsStyle = {
                       left: leftString,
                       width: widthBetweenString,
@@ -61,7 +60,7 @@ export class Timeline extends Component {
           }
           
         const leftString = (event.start * absoluteWidthRenderingScalingFactor) + 'px'; // TODO: we should compute this relative, based on the full size of the parent.
-        const widthString = (event.duration * absoluteWidthRenderingScalingFactor) + 'px';
+        const widthString = this.getWidthString(event.duration);
         const eventColorString = event.eventColor
           ? event.eventColor
           : '#bbbbbb';

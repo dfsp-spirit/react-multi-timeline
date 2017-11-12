@@ -64,6 +64,8 @@ class App extends Component {
           title="WG Griesheim Raumbelegung"
           timelinesData={timelinesData}
           timeUnitLabel="months"
+          absoluteWidthRenderingScalingFactor={10}
+          useParentWidth={true}
         />
       </div>
     );
