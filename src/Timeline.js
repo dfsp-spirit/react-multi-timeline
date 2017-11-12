@@ -4,7 +4,8 @@ export type EventData = {
   +start: number,
   +duration: number,
   +eventTitle: string,
-  +eventColor?: string
+  +eventColor?: string,
+  +eventDescription?: string
 };
 
 export type SingleTimelineData = {
@@ -42,16 +43,19 @@ export class Timeline extends Component {
         const widthString = (event.duration * 10) + 'px';
         const eventColorString = event.eventColor
           ? event.eventColor
-          : 'gray';
+          : '#bbbbbb';
         const eventStyle = {
           left: leftString,
           width: widthString,
           backgroundColor: eventColorString
         };
-        const eventText = event.eventTitle + ': ' + event.duration + (this.props.timeUnitLabel ? ' ' + this.props.timeUnitLabel : '');
+        const eventTextMouseOver = event.eventTitle + ': ' + event.duration + (this.props.timeUnitLabel ? ' ' + this.props.timeUnitLabel : '');
+        const eventText = event.eventTitle;
+        const eventDescriptionElement = event.eventDescription ? <span className="eventDescription">{event.eventDescription}</span> : null;
         const vis = (
-          <span title={eventText} className="event" style={eventStyle} key={index + event.start}>
-            {eventText}
+          <span title={eventTextMouseOver} className="event" style={eventStyle} key={index + event.start}>
+            {eventText} <br/> {eventDescriptionElement}
+            
           </span>
         );
         eventVisualisations.push(vis);

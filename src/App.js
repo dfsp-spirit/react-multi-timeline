@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     // Laura's room
     const room1_event1 = { start: 1, duration: 4, eventTitle: 'Esteban', eventColor: '#ff444466' };
-    const room1_event2 = { start: 5, duration: 20, eventTitle: 'Laura' };
+    const room1_event2 = { start: 5, duration: 20, eventTitle: 'Laura', eventDescription: '12/2009 - 5/2016' };
     const roomLauraEvents = [room1_event1, room1_event2];
 
     // Tim's room
