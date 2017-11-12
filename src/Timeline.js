@@ -11,13 +11,18 @@ export type EventData = {
 export type SingleTimelineData = {
   +events: Array<EventData>,
   +timelineTitle: string,
-  +timeUnitLabel?: string
+  +timeUnitLabel?: string,
+  +displayTimeUnits: boolean,
+  +useParentWidth: boolean,
+  +absoluteWidthRenderingScalingFactor?: number,        // Only used if useParentWidth is false (i.e., when rendering absolute values). Factor to scale the event duration into event width in pixels. Try 10 if in doubt. Defaults to 10.
+  +lastEventEndAbsoluteOverAllTimelines: number,
 };
 
 export class Timeline extends Component {
   props: SingleTimelineData;
 
   render() {
+      const absoluteWidthRenderingScalingFactor = this.props.absoluteWidthRenderingScalingFactor ? this.props.absoluteWidthRenderingScalingFactor : 10;
     const eventVisualisations = [];
     this.props.events.forEach(
       (event: EventData, index: number) => {
@@ -27,8 +32,8 @@ export class Timeline extends Component {
               const lastEventEnd = lastEvent.start + lastEvent.duration; 
               if(lastEventEnd !== event.start) {
                   const timeInBetween = event.start - lastEventEnd;
-                   const leftString = (lastEventEnd * 10) + 'px';
-                  const widthBetweenString = (timeInBetween * 10) + 'px';
+                   const leftString = (lastEventEnd * absoluteWidthRenderingScalingFactor) + 'px';
+                  const widthBetweenString = (timeInBetween * absoluteWidthRenderingScalingFactor) + 'px';
                   const timeBetweenEventsStyle = {
                       left: leftString,
                       width: widthBetweenString,
@@ -39,8 +44,8 @@ export class Timeline extends Component {
               }
           }
           
-        const leftString = (event.start * 10) + 'px'; // TODO: we should compute this relative, based on the full size of the parent.
-        const widthString = (event.duration * 10) + 'px';
+        const leftString = (event.start * absoluteWidthRenderingScalingFactor) + 'px'; // TODO: we should compute this relative, based on the full size of the parent.
+        const widthString = (event.duration * absoluteWidthRenderingScalingFactor) + 'px';
         const eventColorString = event.eventColor
           ? event.eventColor
           : '#bbbbbb';
