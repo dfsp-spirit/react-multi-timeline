@@ -16,15 +16,13 @@ type ReactMultiTimelineState = {};
 export class ReactMultiTimeline extends Component {
   props: ReactMultiTimelineProps;
   state: ReactMultiTimelineState;
-
-  render() {
-    const timelinesData = this.props.timelinesData;
-    const useParentWidth = (this.props.useParentWidth === false ? false : true);
-    
-    // determine the end of the last event over all timelines
-    
-    let lastEventEndAbsoluteOverAllTimelines = 0;
-    timelinesData.forEach((timelineData) => {
+  
+  determineLastEventEndAbsolute(): number {
+      const timelinesData = this.props.timelinesData;
+      const useParentWidth = (this.props.useParentWidth === false ? false : true);
+      
+      let lastEventEndAbsoluteOverAllTimelines = 0;
+    timelinesData.forEach((timelineData: SingleTimelineData) => {
         const events = timelineData.events;
           const lastEventEndAbsoluteThisTimeline = Math.max.apply(Math, events.map((event) => {return event.start + event.duration;}));
           if(lastEventEndAbsoluteThisTimeline > lastEventEndAbsoluteOverAllTimelines) {
@@ -34,10 +32,18 @@ export class ReactMultiTimeline extends Component {
     // prevent division by zero errors later
     if(lastEventEndAbsoluteOverAllTimelines === 0 && useParentWidth && timelinesData.length > 0) {
         // we have timelines, but none of them have any events with length at least 1.
-        console.warn("None of the " + timelinesData.length + " timelines have a total duration of at least 1 time unit over all their events. ");
+        console.warn("None of the " + timelinesData.length + " timelines have a total duration of at least 1 time unit over all their events.");
         lastEventEndAbsoluteOverAllTimelines = 1;       // prevent division by zero when computing relative length of events. Maybe we should rather do this in the timelines?
     }
-          
+    console.log("Last event over all timelines ends at " + lastEventEndAbsoluteOverAllTimelines + ".");
+  }
+
+  render() {
+    const timelinesData = this.props.timelinesData;
+    const useParentWidth = (this.props.useParentWidth === false ? false : true);
+    
+    // determine the end of the last event over all timelines
+    const lastEventEndAbsoluteOverAllTimelines = this.determineLastEventEndAbsolute();
     
     const timelines = timelinesData.map(
       (tData: SingleTimelineData, index: number) => {
@@ -49,6 +55,7 @@ export class ReactMultiTimeline extends Component {
             displayTimeUnits={this.props.displayTimeUnits === false ? false : true}
             timeUnitLabel={this.props.timeUnitLabel ? this.props.timeUnitLabel : ''}
             useParentWidth={useParentWidth}
+            lastEventEndAbsoluteOverAllTimelines={lastEventEndAbsoluteOverAllTimelines}
           />
         );
       }
