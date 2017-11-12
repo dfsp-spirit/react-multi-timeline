@@ -36,7 +36,6 @@ export class Timeline extends Component {
       
 
   render() {
-      const absoluteWidthRenderingScalingFactor = this.props.absoluteWidthRenderingScalingFactor ? this.props.absoluteWidthRenderingScalingFactor : 10;
     const eventVisualisations = [];
     this.props.events.forEach(
       (event: EventData, index: number) => {
