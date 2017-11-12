@@ -37,6 +37,7 @@ export class ReactMultiTimeline extends Component {
         lastEventEndAbsoluteOverAllTimelines = 1;       // prevent division by zero when computing relative length of events. Maybe we should rather do this in the timelines?
     }
     console.log("Last event over all timelines ends at " + lastEventEndAbsoluteOverAllTimelines + ".");
+    return lastEventEndAbsoluteOverAllTimelines;
   }
   
   computeTimelines() {
@@ -45,6 +46,7 @@ export class ReactMultiTimeline extends Component {
     
     // determine the end of the last event over all timelines
     const lastEventEndAbsoluteOverAllTimelines = this.determineLastEventEndAbsolute();
+    
     
     const timelines = timelinesData.map(
       (tData: SingleTimelineData, index: number) => {

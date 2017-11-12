@@ -16,7 +16,8 @@ class App extends Component {
     // Tim's room
     const room2_event1 = { start: 1, duration: 88, eventTitle: 'Tim' };
     const room2_event2 = { start: 89, duration: 8, eventTitle: 'Sandra' };
-    const roomTimEvents = [room2_event1, room2_event2];
+    const room2_event3 = { start: 97, duration: 40, eventTitle: 'TestSack' };
+    const roomTimEvents = [room2_event1, room2_event2, room2_event3];
 
     // guest room
     const room3_event1 = { start: 5, duration: 1, eventTitle: 'Anita' };
