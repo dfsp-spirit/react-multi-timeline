@@ -26,7 +26,7 @@ export class ReactMultiTimeline extends Component {
     let lastEventEndAbsoluteOverAllTimelines = 0;
     timelinesData.forEach((timelineData) => {
         const events = timelineData.events;
-          const lastEventEndAbsoluteThisTimeline = Math.max.appy(Math, events.map((event) => {return event.start + event.duration;}));
+          const lastEventEndAbsoluteThisTimeline = Math.max.apply(Math, events.map((event) => {return event.start + event.duration;}));
           if(lastEventEndAbsoluteThisTimeline > lastEventEndAbsoluteOverAllTimelines) {
               lastEventEndAbsoluteOverAllTimelines = lastEventEndAbsoluteThisTimeline;
           }
