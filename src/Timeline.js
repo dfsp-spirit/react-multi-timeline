@@ -47,10 +47,8 @@ export class Timeline extends Component {
               const lastEventEnd = lastEvent.start + lastEvent.duration; 
               if(lastEventEnd !== event.start) {
                   const timeInBetween = event.start - lastEventEnd;
-                   const leftString = (lastEventEnd * absoluteWidthRenderingScalingFactor) + 'px';
                   const widthBetweenString = this.getWidthString(timeInBetween);
                   const timeBetweenEventsStyle = {
-                      left: leftString,
                       width: widthBetweenString,
                   };
                   eventVisualisations.push(<span className="timeBetweenEvents" style={timeBetweenEventsStyle} key={'timeBetweenEvents' + (index - 1) + 'and' + index}>
@@ -59,13 +57,11 @@ export class Timeline extends Component {
               }
           }
           
-        const leftString = (event.start * absoluteWidthRenderingScalingFactor) + 'px'; // TODO: we should compute this relative, based on the full size of the parent.
         const widthString = this.getWidthString(event.duration);
         const eventColorString = event.eventColor
           ? event.eventColor
           : '#bbbbbb';
         const eventStyle = {
-          left: leftString,
           width: widthString,
           backgroundColor: eventColorString
         };
