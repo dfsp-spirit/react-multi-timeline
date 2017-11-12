@@ -48,10 +48,12 @@ div.timeline-inner-container-scrolling {
      
 }
 
-
 span.event {
+    border: 1px solid black;
+}
+
+span.event-like {
     font-size: small;
-   border: 1px solid black;
    overflow: hidden;
    text-overflow: ellipsis;
    display:inline-block;
@@ -68,14 +70,5 @@ span.eventDescription {
 }
 
 span.timeBetweenEvents {
-   font-size: small;
-    overflow: hidden;
-   text-overflow: ellipsis;
-   display:inline-block;
-   min-height: 5em;
-   text-align: left;
-   /*padding: 1em;*/
-   line-height: 1.5em;
    background-color: #cccccc;
-   max-height: 5em;
 }

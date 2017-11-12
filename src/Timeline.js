@@ -50,7 +50,7 @@ export class Timeline extends Component {
                   const timeBetweenEventsStyle = {
                       width: widthBetweenString,
                   };
-                  eventVisualisations.push(<span className="timeBetweenEvents" style={timeBetweenEventsStyle} key={'timeBetweenEvents' + (index - 1) + 'and' + index}>
+                  eventVisualisations.push(<span className="timeBetweenEvents event-like" style={timeBetweenEventsStyle} key={'timeBetweenEvents' + (index - 1) + 'and' + index}>
             &nbsp;
           </span>);
               }
@@ -68,7 +68,7 @@ export class Timeline extends Component {
         const eventText = event.eventTitle;
         const eventDescriptionElement = event.eventDescription ? <span className="eventDescription">{event.eventDescription}</span> : null;
         const vis = (
-          <span title={eventTextMouseOver} className="event" style={eventStyle} key={index + event.start}>
+          <span title={eventTextMouseOver} className="event event-like" style={eventStyle} key={index + event.start}>
             {eventText} <br/> {eventDescriptionElement}
             
           </span>
