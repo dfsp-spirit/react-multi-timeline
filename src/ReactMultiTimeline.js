@@ -38,9 +38,9 @@ export class ReactMultiTimeline extends Component {
     }
     console.log("Last event over all timelines ends at " + lastEventEndAbsoluteOverAllTimelines + ".");
   }
-
-  render() {
-    const timelinesData = this.props.timelinesData;
+  
+  computeTimelines() {
+      const timelinesData = this.props.timelinesData;
     const useParentWidth = (this.props.useParentWidth === false ? false : true);
     
     // determine the end of the last event over all timelines
@@ -62,6 +62,13 @@ export class ReactMultiTimeline extends Component {
         );
       }
     );
+    return timelines;
+  }
+
+  render() {
+      
+      const timelines = this.computeTimelines();
+    
 
     return (
       <div className="react-multi-timeline">
