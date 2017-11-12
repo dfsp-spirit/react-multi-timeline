@@ -7,6 +7,7 @@ type ReactMultiTimelineProps = {
   +width: 'small' | 'medium' | 'large',
   +title: string,
   +timeUnitLabel?: string,
+  +absoluteWidthRenderingScalingFactor?: number,    // Scaling factor, only used for absolute rendering. Defaults to 10 if omitted (e.g., an event with duration 5 will have width of 50 pixels).
   +displayTimeUnits: boolean,           // Whether to display the duration in time units on mouse-over. Defaults to true.
   +useParentWidth: boolean,             // If this is set to true, the component will use 100% of the width of its parent, and compute the width of all events as a percentage of that width. If set to false, the widths will be computed absolute in pixels, where the duration is used. Defaults to true.
 };
@@ -56,6 +57,7 @@ export class ReactMultiTimeline extends Component {
             timeUnitLabel={this.props.timeUnitLabel ? this.props.timeUnitLabel : ''}
             useParentWidth={useParentWidth}
             lastEventEndAbsoluteOverAllTimelines={lastEventEndAbsoluteOverAllTimelines}
+            absoluteWidthRenderingScalingFactor={this.props.absoluteWidthRenderingScalingFactor}
           />
         );
       }
