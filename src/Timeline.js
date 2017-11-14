@@ -44,14 +44,22 @@ export class Timeline extends Component {
     const eventVisualisations = [];
     this.props.events.forEach(
       (event: EventData, index: number) => {
-          
-          // Add empty space between events if needed
-          if(index >= 1) {
+		  
+		  // Add empty space between events if needed
+		  let lastEventEnd = 1;
+		  if(index === 0) {
+			  if(lastEventEnd > event.start) {
+                  console.warn("Timeline '" + this.props.timelineTitle + "': The first event must not start earlier than at timepoint 1.");
+              }
+		  }
+          else if(index >= 1) {
               const lastEvent = this.props.events[index-1];
-              const lastEventEnd = lastEvent.start + lastEvent.duration;
-              if(lastEventEnd > event.start) {
+              lastEventEnd = lastEvent.start + lastEvent.duration;
+			  if(lastEventEnd > event.start) {
                   console.warn("Timeline '" + this.props.timelineTitle + "': Events #" + (index-1) + " and #" + index + " overlap and/or are in wrong order. Check input data.");
               }
+		  }
+              
               if(lastEventEnd !== event.start) {
                   const timeInBetween = event.start - lastEventEnd;
                   const widthBetweenString = this.getWidthString(timeInBetween);
@@ -62,7 +70,7 @@ export class Timeline extends Component {
             &nbsp;
           </span>);
               }
-          }
+          
           
         const widthString = this.getWidthString(event.duration);
         const eventColorString = event.eventColor
