@@ -22,8 +22,13 @@ export class ReactMultiTimeline extends Component {
 	  const timelinesContainerPosition = this.refs.timelines.getBoundingClientRect();
 	const positionRelativeToTimelinesX = e.clientX - this.refs.timelines.offsetLeft; // = e.nativeEvent.offsetX;		// get mouse pointer relative to timelines component.
 	const eventsAtTime = this.getEventsAtAbsoluteTimepoint(positionRelativeToTimelinesX);	// compute all events which happened at the current time point
-	console.log("There are " + eventsAtTime.length + " events happening at time point " + positionRelativeToTimelinesX + ". timelinesContainerPosition=%o", timelinesContainerPosition);
-	
+	//console.log("There are " + eventsAtTime.length + " events happening at time point " + positionRelativeToTimelinesX + ". timelinesContainerPosition=%o", timelinesContainerPosition);
+	// TODO: change border color of the respective timeline events here
+  }
+  
+  _onMouseLeave(e: SyntheticEvent<>) {
+	console.log("Mouse left timeline container, time to reset.");
+	// TODO: reset border color of all timeline events here
   }
   
   getEventsAtAbsoluteTimepoint(time: number): Array<EventData> {
@@ -99,7 +104,7 @@ export class ReactMultiTimeline extends Component {
         <div className="multi-timeline-title-container">
               <div className="multi-timeline-title">{this.props.title}</div>
           </div>
-          <div ref="timelines" className="timeline-inner-container-scrolling" onMouseMove={this._onMouseMove.bind(this)}>{timelines}</div>
+          <div ref="timelines" className="timeline-inner-container-scrolling" onMouseMove={this._onMouseMove.bind(this)} onMouseLeave={this._onMouseLeave.bind(this)}>{timelines}</div>
         </div>
       </div>
     );
