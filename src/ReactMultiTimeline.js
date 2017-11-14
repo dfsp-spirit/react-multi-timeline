@@ -18,6 +18,11 @@ export class ReactMultiTimeline extends Component {
   props: ReactMultiTimelineProps;
   state: ReactMultiTimelineState;
   
+  _onMouseMove(e) {
+    const position = this.refs.timelines.getBoundingClientRect();
+    console.log("At " + position +" coords: x=" + e.nativeEvent.offsetX + ", y=" + e.nativeEvent.offsetY + "screenX=" +  e.screenX);
+  }
+  
   determineLastEventEndAbsolute(): number {
       const timelinesData = this.props.timelinesData;
       const useParentWidth = (this.props.useParentWidth === false ? false : true);
@@ -78,7 +83,7 @@ export class ReactMultiTimeline extends Component {
         <div className="multi-timeline-title-container">
               <div className="multi-timeline-title">{this.props.title}</div>
           </div>
-          <div className="timeline-inner-container-scrolling">{timelines}</div>
+          <div ref="timelines" className="timeline-inner-container-scrolling" onMouseMove={this._onMouseMove.bind(this)}>{timelines}</div>
         </div>
       </div>
     );
