@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Timeline } from './Timeline';
-import type { SingleTimelineData } from './Timeline';
+import type { SingleTimelineData, EventData } from './Timeline';
 
 type ReactMultiTimelineProps = {
   +timelinesData: Array<SingleTimelineData>,
@@ -18,9 +18,25 @@ export class ReactMultiTimeline extends Component {
   props: ReactMultiTimelineProps;
   state: ReactMultiTimelineState;
   
-  _onMouseMove(e) {
-    const position = this.refs.timelines.getBoundingClientRect();
-    console.log("At " + position +" coords: x=" + e.nativeEvent.offsetX + ", y=" + e.nativeEvent.offsetY + "screenX=" +  e.screenX);
+  _onMouseMove(e: SyntheticEvent<>) {
+	  const position = this.refs.timelines.getBoundingClientRect();
+	const positionRelativeToTimelinesX = e.nativeEvent.offsetX;		// get mouse pointer relative to timelines component.
+	const eventsAtTime = this.getEventsAtAbsoluteTimepoint(positionRelativeToTimelinesX);	// compute all events which happened at the current time point
+	console.log("There are " + eventsAtTime.length + " events happening at time point " + positionRelativeToTimelinesX + ". Position=%o", position);
+	
+  }
+  
+  getEventsAtAbsoluteTimepoint(time: number): Array<EventData> {
+	  let eventsAtTimeAllTimelines = [];
+	  const timelinesData = this.props.timelinesData;
+	  timelinesData.forEach((timelineData: SingleTimelineData) => {
+        const events = timelineData.events;
+		const eventsAtTimeThisTimeline = events.filter((event) => { 
+			return event.start <= time && (event.start + event.duration) >= time;
+		});
+		eventsAtTimeAllTimelines = eventsAtTimeAllTimelines.concat(eventsAtTimeThisTimeline);
+	  });
+	  return eventsAtTimeAllTimelines;
   }
   
   determineLastEventEndAbsolute(): number {
@@ -30,7 +46,7 @@ export class ReactMultiTimeline extends Component {
       let lastEventEndAbsoluteOverAllTimelines = 0;
     timelinesData.forEach((timelineData: SingleTimelineData) => {
         const events = timelineData.events;
-          const lastEventEndAbsoluteThisTimeline = Math.max.apply(Math, events.map((event) => {return event.start + event.duration;}));
+          const lastEventEndAbsoluteThisTimeline = Math.max.apply(Math, events.map((event: EventData) => {return event.start + event.duration;}));
           if(lastEventEndAbsoluteThisTimeline > lastEventEndAbsoluteOverAllTimelines) {
               lastEventEndAbsoluteOverAllTimelines = lastEventEndAbsoluteThisTimeline;
           }

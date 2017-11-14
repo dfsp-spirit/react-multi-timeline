@@ -21,11 +21,12 @@ div.multi-timeline-title {
 }
 
 div.timeline {
-     margin: 1em;
+	/*margin: 1em;*/
+	pointer-events: none;
 }
 
 div.multi-timeline-title-container {
-    margin: 1em;
+    /*margin: 1em;*/
 }
 
 div.timeline-title {
