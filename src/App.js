@@ -20,7 +20,7 @@ class App extends Component {
     const roomTimEvents = [room2_event1, room2_event2, room2_event3];
 
     // guest room
-    const room3_event1 = { start: 5, duration: 1, eventTitle: 'Anita' };
+    const room3_event1 = { start: 8, duration: 3, eventTitle: 'Anita' };
     const room3_event2 = { start: 15, duration: 4, eventTitle: 'Olivia', eventColor: '#fffacd' };
     const room3_event3 = { start: 21, duration: 4, eventTitle: 'Anna' };
 	const room3_event4 = { start: 31, duration: 3, eventTitle: 'Horacio' };
@@ -36,9 +36,10 @@ class App extends Component {
     const roomViolaEvents = [room4_event1, room4_event2, room4_event3, room4_event4];
     
     // Christoph's room
-    const room5_event1 = { start: 1, duration: 24, eventTitle: 'Cara' };
+    const room5_event0 = { start: 1, duration: 6, eventTitle: 'Pia' };
+	const room5_event1 = { start: 7, duration: 18, eventTitle: 'Cara' };
     const room5_event2 = { start: 25, duration: 72, eventTitle: 'Christoph', eventColor: '#fff0f5' };
-    const roomChristophEvents = [room5_event1, room5_event2];
+    const roomChristophEvents = [room5_event0, room5_event1, room5_event2];
     
     // Jelena's room
     const room6_event1 = { start: 1, duration: 24, eventTitle: 'Christoph', eventColor: '#fff0f5' };

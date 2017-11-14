@@ -19,10 +19,10 @@ export class ReactMultiTimeline extends Component {
   state: ReactMultiTimelineState;
   
   _onMouseMove(e: SyntheticEvent<>) {
-	  const position = this.refs.timelines.getBoundingClientRect();
-	const positionRelativeToTimelinesX = e.nativeEvent.offsetX;		// get mouse pointer relative to timelines component.
+	  const timelinesContainerPosition = this.refs.timelines.getBoundingClientRect();
+	const positionRelativeToTimelinesX = e.clientX - this.refs.timelines.offsetLeft; // = e.nativeEvent.offsetX;		// get mouse pointer relative to timelines component.
 	const eventsAtTime = this.getEventsAtAbsoluteTimepoint(positionRelativeToTimelinesX);	// compute all events which happened at the current time point
-	console.log("There are " + eventsAtTime.length + " events happening at time point " + positionRelativeToTimelinesX + ". Position=%o", position);
+	console.log("There are " + eventsAtTime.length + " events happening at time point " + positionRelativeToTimelinesX + ". timelinesContainerPosition=%o", timelinesContainerPosition);
 	
   }
   
@@ -32,7 +32,7 @@ export class ReactMultiTimeline extends Component {
 	  timelinesData.forEach((timelineData: SingleTimelineData) => {
         const events = timelineData.events;
 		const eventsAtTimeThisTimeline = events.filter((event) => { 
-			return event.start <= time && (event.start + event.duration) >= time;
+			return event.start <= time && (event.start + event.duration) > time;
 		});
 		eventsAtTimeAllTimelines = eventsAtTimeAllTimelines.concat(eventsAtTimeThisTimeline);
 	  });

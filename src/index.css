@@ -22,7 +22,6 @@ div.multi-timeline-title {
 
 div.timeline {
 	/*margin: 1em;*/
-	pointer-events: none;
 }
 
 div.multi-timeline-title-container {
