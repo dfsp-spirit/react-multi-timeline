@@ -7,7 +7,7 @@ A component that shows several (as many as you configure) horizontal timelines a
 
 This is work in progress and NOT ready yet. You should not use it at this time. I will publish it to npm when it is ready. The process below describes only howto setup the development environment.
 
-## Installation
+## Development setup
 
 Make sure you have npm installed for your OS, add it to your path if needed. Then:
 
@@ -18,6 +18,8 @@ Make sure you have npm installed for your OS, add it to your path if needed. The
 
     cd react-multi-timeline/
     npm start
+	
+This should run it on 127.0.0.1:3000 and open your default browser at that location.
 
 
 ## Tests
