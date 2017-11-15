@@ -9,6 +9,8 @@ This is work in progress and NOT ready yet. You should not use it at this time. 
 
 ## Installation
 
+Make sure you have npm installed for your OS, add it to your path if needed. Then:
+
     cd react-multi-timeline/
     npm install
 
