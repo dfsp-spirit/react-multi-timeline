@@ -28,6 +28,9 @@ This should run it on 127.0.0.1:3000 and open your default browser at that locat
     CI=true npm test
 	
 	
-## Author
+## License and Author
 
 react-multi-timeline is written by Tim Schäfer
+Copyright 2017 Tim Schäfer
+
+Published under the MIT License, see the LICENSE file or https://opensource.org/licenses/MIT
