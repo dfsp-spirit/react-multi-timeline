@@ -30,7 +30,7 @@ export class Timeline extends Component {
       if(useParentWidth) {
           const lastEventEndAbsoluteOverAllTimelines = this.props.lastEventEndAbsoluteOverAllTimelines;             // TODO: Should we use max of this timeline (computed then) if it is not given? Or bail out?
           const percentThisEvent = Math.floor(((durationAbsoluteThisEvent * 1.0) / lastEventEndAbsoluteOverAllTimelines) * 95); 
-          console.log("Width % for event with absolute duration " + durationAbsoluteThisEvent + " is " +  percentThisEvent + ". lastEventEndAbsoluteOverAllTimelines=" + lastEventEndAbsoluteOverAllTimelines);
+          //console.log("Width % for event with absolute duration " + durationAbsoluteThisEvent + " is " +  percentThisEvent + ". lastEventEndAbsoluteOverAllTimelines=" + lastEventEndAbsoluteOverAllTimelines);
           return percentThisEvent + '%';
       }
       else {
