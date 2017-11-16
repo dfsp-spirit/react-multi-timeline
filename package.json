@@ -2,6 +2,17 @@
   "name": "react-multi-timeline",
   "version": "0.1.0",
   "private": true,
+  "description": "Shows events on one or more horizontal timelines",
+  "keywords": ["timeline", "multi-timeline", "react", "horizontal timeline"],
+  "license": "MIT",
+  "author": {
+    "name": "Tim Schäfer",
+	"url": "http://rcmd.org/ts/"
+  },
+  "repository": { 
+    "type" : "git",
+    "url" : "https://github.com/dfsp-spirit/react-multi-timeline.git"
+  },
   "dependencies": {
     "prettier": "^1.8.2",
     "react": "^16.1.0",
