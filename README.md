@@ -26,6 +26,12 @@ This should run it on 127.0.0.1:3000 and open your default browser at that locat
 
     cd react-multi-timeline/
     CI=true npm test
+    
+## Preview
+
+Here is a screenshot with some example timelines:
+
+![react-multi-timeline-example](./react-multi-timeline-example.jpg?raw=true "React Multi Timeline example")
 	
 	
 ## License and Author
