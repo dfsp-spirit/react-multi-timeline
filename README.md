@@ -34,6 +34,8 @@ Here is a screenshot with some example timelines. It shows the room occupancy fo
 ![react-multi-timeline-example](./react-multi-timeline-example.jpg?raw=true "React Multi Timeline example")
 
 Each timeline represents a single room, and each event represents the time during which a certain person lived in the respective room.
+
+The house has 8 rooms on 3 storeys, and the timeline are groupes accordingly.
 	
 	
 ## License and Author
