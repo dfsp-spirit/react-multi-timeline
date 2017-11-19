@@ -6,6 +6,12 @@ body {
 
 /* CSS for react multi-timeline starts here */
 
+* { 
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+     box-sizing: border-box; 
+}
+
 div.react-multi-timeline {
     border: 1px solid #555555;
     background-color: #eeeeee;
@@ -54,11 +60,11 @@ span.event-like {
    overflow: hidden;
    text-overflow: ellipsis;
    display:inline-block;
-   min-height: 5em;
+   min-height: 6.55em;
    text-align: left;
-   padding: 1em;
+   padding: 0.5em;
    line-height: 1.5em;
-   max-height: 5em;
+   max-height: 6.5em;
    border-radius: 0.5em;
 }
 

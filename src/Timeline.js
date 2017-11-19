@@ -80,8 +80,14 @@ export class Timeline extends Component {
           width: widthString,
           backgroundColor: eventColorString
         };
-        const eventTextMouseOver = event.eventTitle + ': ' + event.duration + (this.props.timeUnitLabel ? ' ' + this.props.timeUnitLabel : '');
-        const eventText = event.eventTitle;
+        
+        // Generate the string to display on mouse-over
+        const displayTimeUnits = this.props.displayTimeUnits;
+        const eventDescriptionMouseOver = event.eventDescription ? ': ' + event.eventDescription : '';
+        const timeUnitStringMouseOver = displayTimeUnits ?  ' (' + event.duration + (this.props.timeUnitLabel ? ' ' + this.props.timeUnitLabel : '') + ')' : '';
+        const eventText = event.eventTitle ? event.eventTitle : '';
+        const eventTextMouseOver = eventText + eventDescriptionMouseOver + timeUnitStringMouseOver;
+        
         const eventDescriptionElement = event.eventDescription ? <span className="eventDescription">{event.eventDescription}</span> : null;
         const vis = (
           <span title={eventTextMouseOver} className="event event-like" style={eventStyle} key={index + event.start}>
