@@ -12,7 +12,7 @@ export type SingleTimelineData = {
   +events: Array<EventData>,
   +timelineTitle: string,
   +timeUnitLabel?: string,
-  +displayTimeUnits: boolean,
+  +displayTimeUnits: boolean,       // Whether to display the duration of an event in the original time units on mousover (e.g. "4 months" if event.duration is 4 and timeUnitLabel is 'months')
   +useParentWidth: boolean,
   +absoluteWidthRenderingScalingFactor?: number,        // Only used if useParentWidth is false (i.e., when rendering absolute values). Factor to scale the event duration into event width in pixels. Try 10 if in doubt. Defaults to 10.
   +lastEventEndAbsoluteOverAllTimelines: number,        // Only needed if useParentWidth is true.
