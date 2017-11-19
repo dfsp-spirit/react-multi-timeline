@@ -40,7 +40,8 @@ The house has 8 rooms on 3 storeys, and the timelines are grouped accordingly.
 	
 ## License and Author
 
-react-multi-timeline is written by Tim Schäfer
+react-multi-timeline is written by [Tim Schäfer](http://rcmd.org/ts/)
+
 Copyright 2017 Tim Schäfer
 
 Published under the MIT License, see the LICENSE file or https://opensource.org/licenses/MIT
