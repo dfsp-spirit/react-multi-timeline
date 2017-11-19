@@ -29,9 +29,11 @@ This should run it on 127.0.0.1:3000 and open your default browser at that locat
     
 ## Preview
 
-Here is a screenshot with some example timelines:
+Here is a screenshot with some example timelines. It shows the room occupancy for a house with several rooms over time.
 
 ![react-multi-timeline-example](./react-multi-timeline-example.jpg?raw=true "React Multi Timeline example")
+
+Each timeline represents a single room, and each event represents the time during which a certain person lived in the respective room.
 	
 	
 ## License and Author
