@@ -47,18 +47,18 @@ class App extends Component {
     const room6_event3 = { start: 89, duration: 8, eventTitle: 'Giammarco' };
     const roomJelenaEvents = [room6_event1, room6_event2, room6_event3];
     
-    // Philipp's room
-    const room7_event1 = { start: 1, duration: 24, eventTitle: 'Philipp' };
-    const room7_event2 = { start: 25, duration: 64, eventTitle: 'Marie' };
-    const room7_event3 = { start: 89, duration: 8, eventTitle: 'Maren' };
-    const room7_event4 = { start: 89, duration: 8, eventTitle: 'Hunni', eventColor: '#f0fff0' };
-    const roomPhilippEvents = [room7_event1, room7_event2, room7_event3, room7_event4];
-    
     // Olivia's room
-    const room8_event1 = { start: 1, duration: 24, eventTitle: 'Olivia', eventColor: '#fffacd' };
+    const room7_event1 = { start: 1, duration: 27, eventTitle: 'Olivia', eventColor: '#fffacd' };
+    const room7_event2 = { start: 28, duration: 56, eventTitle: 'Marie' };
+    const room7_event3 = { start: 84, duration: 5, eventTitle: 'Maren' };
+    const room7_event4 = { start: 89, duration: 8, eventTitle: 'Hunni', eventColor: '#f0fff0' };
+    const roomOliviaEvents = [room7_event1, room7_event2, room7_event3, room7_event4];
+    
+    // Philipp's room
+    const room8_event1 = { start: 1, duration: 24, eventTitle: 'Philipp' };
     const room8_event2 = { start: 25, duration: 64, eventTitle: 'Jan' };
     const room8_event3 = { start: 89, duration: 8, eventTitle: 'Laura', eventColor:'#a4d2df' };
-    const roomOliviaEvents = [room8_event1, room8_event2, room8_event3];
+    const roomPhilippEvents = [room8_event1, room8_event2, room8_event3];
     
 
     const timelinesData = [
@@ -68,8 +68,8 @@ class App extends Component {
       { events: roomGuestEvents, timelineTitle: "Mittlere Ebene, linkes Zimmer (Gästezimmer)" },      
       { events: roomViolaEvents, timelineTitle: "Mittlere Ebene, mittleres Zimmer" },
       { events: roomTimEvents, timelineTitle: "Mittlere Ebene, rechtes Zimmer (neben Küche)", spaceAfterTimeline: 'larger' },
-      { events: roomPhilippEvents, timelineTitle: "Untere Wohnung, linkes Zimmer" },
-      { events: roomOliviaEvents, timelineTitle: "Untere Wohnung, rechtes Zimmer (neben Küche)" },
+      { events: roomOliviaEvents, timelineTitle: "Untere Wohnung, linkes Zimmer" },
+      { events: roomPhilippEvents, timelineTitle: "Untere Wohnung, rechtes Zimmer (neben Küche)" },
       
       
       
