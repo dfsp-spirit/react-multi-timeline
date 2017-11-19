@@ -39,15 +39,15 @@ div.timeline-title {
 }
 
 div.timeline-outer-container-fixed-width {
-    border: 1px solid #ffaaaa;
+    /*border: 1px solid #ffaaaa;*/
     margin: 2em;
-    overflow-x: scroll;
+    overflow-x: auto;
     width: 95%;
     height: 90%;
 }
 
 div.timeline-inner-container-scrolling {
-    border: 1px solid #aaaaff;
+    /*border: 1px solid #aaaaff;*/
     margin-right: 0;
 }
 
