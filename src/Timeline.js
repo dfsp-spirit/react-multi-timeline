@@ -11,8 +11,9 @@ export type EventData = {
 export type SingleTimelineData = {
   +events: Array<EventData>,
   +timelineTitle: string,
+  +spaceAfterTimeline?: 'default' | 'larger',
   +timeUnitLabel?: string,
-  +displayTimeUnits: boolean,       // Whether to display the duration of an event in the original time units on mousover (e.g. "4 months" if event.duration is 4 and timeUnitLabel is 'months')
+  +displayTimeUnits?: boolean,       // Whether to display the duration of an event in the original time units on mousover (e.g. "4 months" if event.duration is 4 and timeUnitLabel is 'months')
   +useParentWidth: boolean,
   +absoluteWidthRenderingScalingFactor?: number,        // Only used if useParentWidth is false (i.e., when rendering absolute values). Factor to scale the event duration into event width in pixels. Try 10 if in doubt. Defaults to 10.
   +lastEventEndAbsoluteOverAllTimelines: number,        // Only needed if useParentWidth is true.
@@ -98,11 +99,14 @@ export class Timeline extends Component {
         eventVisualisations.push(vis);
       }
     );
+    
+    const verticalExtraSpaceAfterTimeline = this.props.spaceAfterTimeline === 'larger' ? <div className="timeline-space-after-larger"></div> : <div className="timeline-space-after-default"></div>;
 
     return (
       <div className="timeline">
         <div className="timeline-title">{this.props.timelineTitle}</div>
         <div className="timeline-visualization">{eventVisualisations}</div>
+        {verticalExtraSpaceAfterTimeline}
       </div>
     );
   }

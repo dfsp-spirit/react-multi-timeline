@@ -80,6 +80,7 @@ export class ReactMultiTimeline extends Component {
           <Timeline
             timelineTitle={tData.timelineTitle ? tData.timelineTitle : 'Timeline #' + index }
             events={tData.events}
+            spaceAfterTimeline={tData.spaceAfterTimeline ? tData.spaceAfterTimeline : 'default'}
             key={index + tData.timelineTitle}
             displayTimeUnits={this.props.displayTimeUnits === false ? false : true}
             timeUnitLabel={this.props.timeUnitLabel ? this.props.timeUnitLabel : ''}

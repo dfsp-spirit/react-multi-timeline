@@ -58,7 +58,7 @@ span.event {
 span.event-like {
     font-size: small;
    overflow: hidden;
-   text-overflow: ellipsis;
+   text-overflow: hidden;
    display:inline-block;
    min-height: 6.55em;
    text-align: left;
@@ -74,4 +74,12 @@ span.eventDescription {
 
 span.timeBetweenEvents {
    background-color: #cccccc44;
+}
+
+div.timeline-space-after-default {
+    min-height: 1em;
+}
+
+div.timeline-space-after-larger {
+    min-height: 3em;
 }

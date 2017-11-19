@@ -62,14 +62,14 @@ class App extends Component {
     
 
     const timelinesData = [
-      { events: roomLauraEvents, timelineTitle: "Oben links" },
-      { events: roomChristophEvents, timelineTitle: "Oben Mitte" },
-      { events: roomJelenaEvents, timelineTitle: "Oben rechts" },
-      { events: roomGuestEvents, timelineTitle: "Mittlere Ebene links (Gästezimmer)" },      
-      { events: roomViolaEvents, timelineTitle: "Mittlere Ebene Mitte" },
-      { events: roomTimEvents, timelineTitle: "Mittlere Ebene rechts" },
-      { events: roomPhilippEvents, timelineTitle: "Untere Wohnung links" },
-      { events: roomOliviaEvents, timelineTitle: "Untere Wohnung rechts" },
+      { events: roomLauraEvents, timelineTitle: "Obere Etage, linkes Zimmer (neben Bad)" },
+      { events: roomChristophEvents, timelineTitle: "Obere Etage, mittleres Zimmer" },
+      { events: roomJelenaEvents, timelineTitle: "Obere Etage, rechtes Zimmer (neben Treppe zum Wohnzimmer)", spaceAfterTimeline: 'larger' },
+      { events: roomGuestEvents, timelineTitle: "Mittlere Ebene, linkes Zimmer (Gästezimmer)" },      
+      { events: roomViolaEvents, timelineTitle: "Mittlere Ebene, mittleres Zimmer" },
+      { events: roomTimEvents, timelineTitle: "Mittlere Ebene, rechtes Zimmer (neben Küche)", spaceAfterTimeline: 'larger' },
+      { events: roomPhilippEvents, timelineTitle: "Untere Wohnung, linkes Zimmer" },
+      { events: roomOliviaEvents, timelineTitle: "Untere Wohnung, rechtes Zimmer (neben Küche)" },
       
       
       
