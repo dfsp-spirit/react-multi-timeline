@@ -35,7 +35,7 @@ Here is a screenshot with some example timelines. It shows the room occupancy fo
 
 Each timeline represents a single room, and each event represents the time during which a certain person lived in the respective room.
 
-The house has 8 rooms on 3 storeys, and the timeline are groupes accordingly.
+The house has 8 rooms on 3 storeys, and the timelines are grouped accordingly.
 	
 	
 ## License and Author
