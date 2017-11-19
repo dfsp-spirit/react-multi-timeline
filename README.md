@@ -9,8 +9,9 @@ This is work in progress and NOT ready yet. You should not use it at this time. 
 
 ## Development setup
 
-Make sure you have npm installed for your OS, add it to your path if needed. Then:
+Make sure you have both `git` and `npm` installed for your OS, and add them to your `PATH` if needed. Then:
 
+    git clone https://github.com/dfsp-spirit/react-multi-timeline.git
     cd react-multi-timeline/
     npm install
 
