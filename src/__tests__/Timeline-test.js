@@ -34,9 +34,33 @@ describe('Test timeline with a single event that starts after time point zero', 
   const countEventLikes = function () {
     return componentInstance.find('span.event-like').length;
   };
+
+  const countTimelines = function () {
+    return componentInstance.find('div.timeline').length;
+  };
+
+  const countTimelineTitles = function () {
+    return componentInstance.find('div.timeline-title').length;
+  };
+
+  const countTimelineVisualizations = function () {
+    return componentInstance.find('div.timeline-visualization').length;
+  };
   
   it('Contains exactly four divs', function () {
     expect(countDivs()).toBe(4);
+  });
+
+  it('Contains one timeline', function () {
+    expect(countTimelines()).toBe(1);
+  });
+
+  it('Contains one timeline title', function () {
+    expect(countTimelineTitles()).toBe(1);
+  });
+
+  it('Contains one timeline visualization', function () {
+    expect(countTimelineVisualizations()).toBe(1);
   });
 
   it('Contains exactly one event', function () {
@@ -50,6 +74,5 @@ describe('Test timeline with a single event that starts after time point zero', 
   it('Contains exactly two event-like entries', function () {
     expect(countEventLikes()).toBe(2);
   });
-
 
 });
