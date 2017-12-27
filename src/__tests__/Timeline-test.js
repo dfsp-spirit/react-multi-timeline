@@ -46,7 +46,7 @@ describe('Simple timeline with a single event that starts after time point zero 
   
   beforeEach(function () {
     const component = <Timeline
-    timelineTitle="Timeline Test 12"
+    timelineTitle="Simple Timeline"
     events={[{eventTitle: 'Event 1', start: 5, duration: 10}]}
     displayTimeUnits={true}
     timeUnitLabel="months"
@@ -70,7 +70,7 @@ describe('Simple timeline with a single event that starts after time point zero 
 
   it('Has the proper timeline title set', function () {
     expect(getTimelineTitles().get(0)).not.toBeUndefined();
-    expect(getTimelineTitles().get(0).props.children).toBe('Timeline Test 12');
+    expect(getTimelineTitles().get(0).props.children).toBe('Simple Timeline');
   });
 
   it('Contains one timeline visualization', function () {
@@ -102,15 +102,20 @@ describe('Complex timeline with several events, some directly consecutive, some 
   
   beforeEach(function () {
     const component = <Timeline
-    timelineTitle="Timeline"
+    timelineTitle="Complex Timeline"
     events={[{eventTitle: 'event1', start: 5, duration: 10}, {eventTitle: 'event2', start: 15, duration: 3}, {eventTitle: 'event3', start: 20, duration: 10}]}
     displayTimeUnits={true}
     timeUnitLabel="months"
     useParentWidth={true}
-    lastEventEndAbsoluteOverAllTimelines={10}
+    lastEventEndAbsoluteOverAllTimelines={30}
     />;
     componentInstance = mount(component);
-  });  
+  });
+  
+  it('Has the proper timeline title set', function () {
+    expect(getTimelineTitles().get(0)).not.toBeUndefined();
+    expect(getTimelineTitles().get(0).props.children).toBe('Complex Timeline');
+  });
   
   it('Contains exactly four divs', function () {
     expect(countDivs()).toBe(4);
@@ -134,6 +139,12 @@ describe('Complex timeline with several events, some directly consecutive, some 
 
   it('Contains two empty time periods between events', function () {
     expect(countTimeBetweenEvents()).toBe(2);
+  });
+
+  it('Contains the events with proper titles and durations', function () {
+    expect(getEvents().get(0).props.title).toBe('event1 (10 months)');
+    expect(getEvents().get(1).props.title).toBe('event2 (3 months)');
+    expect(getEvents().get(2).props.title).toBe('event3 (10 months)');
   });
 
   it('Contains five event-like entries', function () {
