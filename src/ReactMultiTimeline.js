@@ -62,7 +62,6 @@ export class ReactMultiTimeline extends Component {
         console.warn("None of the " + timelinesData.length + " timelines have a total duration of at least 1 time unit over all their events.");
         lastEventEndAbsoluteOverAllTimelines = 1;       // prevent division by zero when computing relative length of events. Maybe we should rather do this in the timelines?
     }
-    console.log("Last event over all timelines ends at " + lastEventEndAbsoluteOverAllTimelines + ".");
     return lastEventEndAbsoluteOverAllTimelines;
   }
   
